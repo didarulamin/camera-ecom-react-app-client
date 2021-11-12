@@ -1,0 +1,17 @@
+.icon {
+  color: #ffa11a;
+}
+
+.card-overly {
+  display: none;
+}
+
+.card:hover .card-overly {
+  display: block;
+  top: 50%;
+  right: 50%;
+}
+/* .card-overly {
+  display: block;
+}
+ */

@@ -1,0 +1,30 @@
+.dropdown-toggle::after {
+  display: none;
+}
+
+.nav-item-animation {
+  line-height: 40px;
+  margin-right: 1rem;
+}
+
+.nav-item-animation:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+
+  transition: width 0.7s ease, background-color 0.5s ease;
+}
+
+.nav-item-animation:hover:after {
+  width: 100%;
+  background: #774ebb;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #000 !important;
+  text-decoration: none;
+  background-color: #ffff !important;
+}
