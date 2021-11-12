@@ -26,7 +26,7 @@ import UserDashboard from "./Pages/Dashboard/UserDashboard";
 import BuyNow from "./Pages/BuyNow/BuyNow";
 
 function App() {
-  return (
+  /*   return (
     <div>
       <AuthProvider>
         <BrowserRouter>
@@ -80,8 +80,8 @@ function App() {
         </BrowserRouter>
       </AuthProvider>
     </div>
-  );
-  /* 
+  ); */
+
   const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
@@ -125,8 +125,8 @@ function App() {
             <Route path="/products/:id">
               <ProductDetails />
             </Route>
-            <PrivateRoute path="/checkout/:id">
-              <CheckOut />
+            <PrivateRoute path="/buynow/">
+              <BuyNow />
             </PrivateRoute>
             <PrivateRoute path="/checkout/">
               <CheckOut />
@@ -155,7 +155,7 @@ function App() {
     >
       <CircularProgress />
     </Box>
-  ); */
+  );
 }
 
 export default App;
