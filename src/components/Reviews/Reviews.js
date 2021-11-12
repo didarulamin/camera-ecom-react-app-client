@@ -22,7 +22,9 @@ const Reviews = () => {
     };
 
     axios
-      .post("http://localhost:5000/api/review/submit", { reviewData })
+      .post("https://murmuring-hollows-32072.herokuapp.com/api/review/submit", {
+        reviewData,
+      })
       .then((res) => {
         toast.success("Review Submitted");
       })

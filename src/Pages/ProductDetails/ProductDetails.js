@@ -17,10 +17,12 @@ const ProductDetails = () => {
   const history = useHistory();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/product/${id}`).then((res) => {
-      console.log(res.data);
-      setProduct(res.data);
-    });
+    axios
+      .get(`https://murmuring-hollows-32072.herokuapp.com/api/product/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setProduct(res.data);
+      });
   }, [id]);
 
   const handleAddCart = (add_product) => {

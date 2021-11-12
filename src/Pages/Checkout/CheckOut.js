@@ -6,7 +6,6 @@ import "./form.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
 function CheckOutForm({ cartItems, total }) {
   const { user, setCart } = useAuth();
   const {
@@ -15,8 +14,6 @@ function CheckOutForm({ cartItems, total }) {
     reset,
     formState: { errors },
   } = useForm();
-
-  
 
   const onSubmit = (data) => {
     const orderItems = [...cartItems];
@@ -34,7 +31,10 @@ function CheckOutForm({ cartItems, total }) {
     console.log(orderDetails);
 
     axios
-      .post("http://localhost:5000/api/order/placed", orderDetails)
+      .post(
+        "https://murmuring-hollows-32072.herokuapp.com/api/order/placed",
+        orderDetails
+      )
       .then((res) => {
         console.log(res.data);
       });
@@ -93,7 +93,7 @@ const CheckOut = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    /*  axios.get(`http://localhost:5000/api/product/${id}`).then((res) => {
+    /*  axios.get(`https://murmuring-hollows-32072.herokuapp.com/api/product/${id}`).then((res) => {
       console.log(res.data);
       setProduct(res.data);
     }); */

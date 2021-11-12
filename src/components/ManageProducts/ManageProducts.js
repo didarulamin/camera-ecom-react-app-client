@@ -9,7 +9,7 @@ const ManageProducts = () => {
   const [forceUpdate, setforceUpdate] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products/all")
+    fetch("https://murmuring-hollows-32072.herokuapp.com/api/products/all")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [forceUpdate]);
@@ -22,7 +22,7 @@ const ManageProducts = () => {
   };
 
   const handleDelete = (id) => {
-    /*     fetch(`http://localhost:5000/api/product/delete/${id}`, {
+    /*     fetch(`https://murmuring-hollows-32072.herokuapp.com/api/product/delete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -34,7 +34,9 @@ const ManageProducts = () => {
 
     if (isDelete) {
       axios
-        .delete(`http://localhost:5000/api/product/delete/${id}`)
+        .delete(
+          `https://murmuring-hollows-32072.herokuapp.com/api/product/delete/${id}`
+        )
         .then((res) => {
           console.log(res);
           //   forceUpdate((n) => !n);

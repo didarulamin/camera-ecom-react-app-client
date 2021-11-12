@@ -32,7 +32,10 @@ function CheckOutForm({ cartItems, total }) {
     console.log(orderDetails);
 
     axios
-      .post("http://localhost:5000/api/order/placed", orderDetails)
+      .post(
+        "https://murmuring-hollows-32072.herokuapp.com/api/order/placed",
+        orderDetails
+      )
       .then((res) => {
         console.log(res.data);
       });

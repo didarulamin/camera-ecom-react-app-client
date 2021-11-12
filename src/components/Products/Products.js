@@ -10,9 +10,11 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/products/all").then((res) => {
-      setProducts(res.data);
-    });
+    axios
+      .get("https://murmuring-hollows-32072.herokuapp.com/api/products/all")
+      .then((res) => {
+        setProducts(res.data);
+      });
   }, []);
 
   return (

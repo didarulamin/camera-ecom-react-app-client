@@ -7,32 +7,37 @@ const useData = () => {
   const [deleted, setDeleted] = useState(false);
   const [myOrders, setMyOrders] = useState([]);
   const [allOrders, setAllOrders] = useState([]);
- 
+
   const { user, token } = useAuth();
 
   useEffect(() => {
-    /*   fetch("http://localhost:5000/api/products/all")
+    /*   fetch("https://murmuring-hollows-32072.herokuapp.com/api/products/all")
       .then((data) => data.json())
       .then((data) => setAllProducts(data)); */
 
     axios
-      .get(`http://localhost:5000/api/myorders/${user.uid}`)
+      .get(
+        `https://murmuring-hollows-32072.herokuapp.com/api/myorders/${user.uid}`
+      )
       .then((res) => setMyOrders(res.data));
   }, [deleted]);
 
   useEffect(() => {
     /*   axios
-      .get(`http://localhost:5000/api/orders/all/${user.email}`)
+      .get(`https://murmuring-hollows-32072.herokuapp.com/api/orders/all/${user.email}`)
       .then((res) => setAllOrders(res.data)); */
 
-    fetch(`http://localhost:5000/api/orders/all/${user.email}`, {
-      method: "get",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "content-type": "application/json",
-      },
-      // body: JSON.stringify(user)
-    })
+    fetch(
+      `https://murmuring-hollows-32072.herokuapp.com/api/orders/all/${user.email}`,
+      {
+        method: "get",
+        headers: {
+          authorization: `Bearer ${token}`,
+          "content-type": "application/json",
+        },
+        // body: JSON.stringify(user)
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         /*   if (data.modifiedCount) {
@@ -52,7 +57,6 @@ const useData = () => {
     myOrders,
     setMyOrders,
     allOrders,
- 
   };
 };
 

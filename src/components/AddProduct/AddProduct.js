@@ -55,7 +55,7 @@ function Form() {
             console.log(newData);
 
             /*  axios
-              .post("http://localhost:5000/api/product/add", {
+              .post("https://murmuring-hollows-32072.herokuapp.com/api/product/add", {
                 newData,
                
               })
@@ -64,14 +64,17 @@ function Form() {
                   toast.success("Product added successfully");
                 reset();
               }); */
-            fetch(`http://localhost:5000/api/product/add/`, {
-              method: "post",
-              headers: {
-                authorization: `Bearer ${token}`,
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(newData),
-            })
+            fetch(
+              `https://murmuring-hollows-32072.herokuapp.com/api/product/add/`,
+              {
+                method: "post",
+                headers: {
+                  authorization: `Bearer ${token}`,
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(newData),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 console.log(data);
@@ -84,7 +87,7 @@ function Form() {
       );
     } else {
       /*  axios
-        .post("http://localhost:5000/api/product/add", {
+        .post("https://murmuring-hollows-32072.herokuapp.com/api/product/add", {
           newData: data,
           
         })
@@ -94,7 +97,7 @@ function Form() {
           reset();
         }); */
 
-      fetch(`http://localhost:5000/api/product/add/`, {
+      fetch(`https://murmuring-hollows-32072.herokuapp.com/api/product/add/`, {
         method: "post",
         headers: {
           authorization: `Bearer ${token}`,

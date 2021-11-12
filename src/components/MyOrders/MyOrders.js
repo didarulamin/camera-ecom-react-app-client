@@ -12,7 +12,9 @@ const MyOrders = () => {
     let isDelete = window.confirm("Are you sure?");
     if (isDelete) {
       axios
-        .delete(`http://localhost:5000/api/orders/delete/${id}`)
+        .delete(
+          `https://murmuring-hollows-32072.herokuapp.com/api/orders/delete/${id}`
+        )
         .then((res) => {});
       setDeleted(!deleted);
     } else {

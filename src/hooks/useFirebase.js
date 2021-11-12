@@ -120,7 +120,9 @@ const useFirebase = () => {
   useEffect(() => {
     setadminLoading(true);
     axios
-      .get(`http://localhost:5000/api/user/role/${user.email}`)
+      .get(
+        `https://murmuring-hollows-32072.herokuapp.com/api/user/role/${user.email}`
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data?.role === "admin") {
@@ -158,7 +160,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName, uid, method) => {
     const user = { email, displayName, uid };
-    fetch("http://localhost:5000/api/users/add", {
+    fetch("https://murmuring-hollows-32072.herokuapp.com/api/users/add", {
       method: method,
       headers: {
         "content-type": "application/json",

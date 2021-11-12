@@ -12,11 +12,13 @@ const Explore = () => {
   const [search, setSearch] = useState(true);
   useEffect(() => {
     setSearch(true);
-    axios.get("http://localhost:5000/api/products/all").then((res) => {
-      setProducts(res.data);
+    axios
+      .get("https://murmuring-hollows-32072.herokuapp.com/api/products/all")
+      .then((res) => {
+        setProducts(res.data);
 
-      setTimeout(() => setSearch(false), 500);
-    });
+        setTimeout(() => setSearch(false), 500);
+      });
   }, []);
 
   return !search ? (

@@ -59,9 +59,12 @@ function Form({ product, forceUpdate, setforceUpdate, setUpdate }) {
             console.log(newData);
 
             axios
-              .put(`http://localhost:5000/api/product/update/${product._id}`, {
-                newData,
-              })
+              .put(
+                `https://murmuring-hollows-32072.herokuapp.com/api/product/update/${product._id}`,
+                {
+                  newData,
+                }
+              )
               .then((res) => {
                 console.log(res);
                 //   toast.success("Product added successfully");
@@ -75,9 +78,12 @@ function Form({ product, forceUpdate, setforceUpdate, setUpdate }) {
     } else {
       const { image, ...updateData } = data;
       axios
-        .put(`http://localhost:5000/api/product/update/${product._id}`, {
-          newData: updateData,
-        })
+        .put(
+          `https://murmuring-hollows-32072.herokuapp.com/api/product/update/${product._id}`,
+          {
+            newData: updateData,
+          }
+        )
         .then((res) => {
           console.log(res);
           //   toast.success("Product added successfully");

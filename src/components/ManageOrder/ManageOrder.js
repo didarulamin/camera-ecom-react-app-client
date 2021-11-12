@@ -11,7 +11,9 @@ const MyOrders = () => {
     let isDelete = window.confirm("Are you sure?");
     if (isDelete) {
       axios
-        .delete(`http://localhost:5000/api/orders/delete/${id}`)
+        .delete(
+          `https://murmuring-hollows-32072.herokuapp.com/api/orders/delete/${id}`
+        )
         .then((res) => {});
       setDeleted(!deleted);
     } else {
@@ -21,18 +23,24 @@ const MyOrders = () => {
 
   const handleConfirmed = (id) => {
     axios
-      .put(`http://localhost:5000/api/order/status/${id}`, {
-        status: "confirmed",
-      })
+      .put(
+        `https://murmuring-hollows-32072.herokuapp.com/api/order/status/${id}`,
+        {
+          status: "confirmed",
+        }
+      )
       .then((res) => {});
     setDeleted(!deleted);
   };
 
   const handleShipped = (id) => {
     axios
-      .put(`http://localhost:5000/api/order/status/${id}`, {
-        status: "shipped",
-      })
+      .put(
+        `https://murmuring-hollows-32072.herokuapp.com/api/order/status/${id}`,
+        {
+          status: "shipped",
+        }
+      )
       .then((res) => {});
     setDeleted(!deleted);
   };

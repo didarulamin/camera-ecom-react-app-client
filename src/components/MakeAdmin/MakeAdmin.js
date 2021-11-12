@@ -12,14 +12,17 @@ const MakeAdmin = () => {
     console.log("submit");
     console.log(email);
 
-    fetch(`http://localhost:5000/api/makeadmin/${email}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "content-type": "application/json",
-      },
-      // body: JSON.stringify(user)
-    })
+    fetch(
+      `https://murmuring-hollows-32072.herokuapp.com/api/makeadmin/${email}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${token}`,
+          "content-type": "application/json",
+        },
+        // body: JSON.stringify(user)
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         /*   if (data.modifiedCount) {
