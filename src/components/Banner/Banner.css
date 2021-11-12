@@ -34,3 +34,7 @@
 .carousel-caption {
   bottom: 50% !important;
 }
+
+.banner-container {
+  height: 500px;
+}

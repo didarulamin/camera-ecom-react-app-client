@@ -35,6 +35,7 @@ const useFirebase = () => {
   const [, forceUpdate] = useState(0);
   const [token, setToken] = useState("");
   const auth = getAuth();
+  const [buyNowCart, setBuyNowCart] = useState([]);
   const [cart, setCart] = useState(() => {
     // getting stored value
     const saved = localStorage.getItem("cartItems");
@@ -193,6 +194,8 @@ const useFirebase = () => {
     setCart,
     adminLoading,
     setadminLoading,
+    buyNowCart,
+    setBuyNowCart,
   };
 };
 

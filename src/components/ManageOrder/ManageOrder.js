@@ -63,7 +63,7 @@ const MyOrders = () => {
                 <td>{order.email}</td>
                 <td>{order.address}</td>
                 <td>{order.status}</td>
-                <td>${order.total.toFixed(2)}</td>
+                <td>${parseInt(order.total).toFixed(2)}</td>
 
                 <td>
                   <span className="d-flex ">

@@ -1,5 +1,4 @@
 import {
-  faShoppingBasket,
   faShoppingCart,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+
 // import useFirebase from "../../hooks/useFirebase";
 import useAuth from "../../hooks/useAuth";
 import { useHistory } from "react-router-dom";
@@ -31,7 +30,7 @@ const Header = () => {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand className="fs-1 mx-5" href="#home">
-            <p className="text-primary fs-2 text-start">Go Beyond Travels</p>
+            <p className="text-primary fs-2 text-start">Cameraly </p>
           </Navbar.Brand>
         </LinkContainer>
 
@@ -44,29 +43,6 @@ const Header = () => {
             <LinkContainer to="/explore" className="nav-item-animation">
               <Nav.Link>Explore</Nav.Link>
             </LinkContainer>
-
-            {/*           {user.email ? (
-              <>
-                <LinkContainer
-                  to="/managebookings"
-                  className="nav-item-animation"
-                >
-                  <Nav.Link>Manage Bookings</Nav.Link>
-                </LinkContainer>
-                <LinkContainer
-                  to="/managetourpackages"
-                  className="nav-item-animation"
-                >
-                  <Nav.Link>Manage Tour Package</Nav.Link>
-                </LinkContainer>
-              </>
-            ) : (
-              <>
-                <LinkContainer to="/mybookings" className="nav-item-animation">
-                  <Nav.Link>My Bookings</Nav.Link>
-                </LinkContainer>
-              </>
-            )} */}
 
             <LinkContainer to="/contact" className="nav-item-animation">
               <Nav.Link>Contact</Nav.Link>

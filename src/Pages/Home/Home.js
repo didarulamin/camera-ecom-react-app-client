@@ -1,6 +1,7 @@
 import React from "react";
-import Banner from "../../components/Banner/Banner";
-import ReviewSlider from "../../components/ReviewSlider/ReviewSlider";
+import Products from "../../components/Products/Products";
+// import DestinationSlider from "../../components/DestinationSlider/DestinationSlider";
+// import Banner from "../../components/Banner/Banner";
 
 // import Header from "../../components/Header/Header";
 // import NavBar from "../../components/Header/Navbar";
@@ -9,9 +10,12 @@ import ReviewSlider from "../../components/ReviewSlider/ReviewSlider";
 
 const Home = () => {
   return (
-    <div className="container">
-      <Banner />
-      <ReviewSlider/>
+    <div>
+      {/* <Banner /> */}
+
+      {/* <DestinationSlider /> */}
+
+      <Products />
     </div>
   );
 };

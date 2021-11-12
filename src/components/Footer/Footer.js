@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="l-footer">
           <h1>
             {/* <img src="https://i.postimg.cc/y62wcLBq/logo.png" alt="" /> */}
-            Camera
+            Cameraly
           </h1>
           <p>
             The new hero pieces bring instant fashion credibility. Bright
@@ -107,7 +107,7 @@ const Footer = () => {
                 <Link href="#">(102) 6666 8888</Link>
               </li>
               <li>
-                <Link href="#">info@demo.com</Link>
+                <Link href="#">info@cameraly.com</Link>
               </li>
               <li>
                 <img
@@ -119,7 +119,7 @@ const Footer = () => {
           </li>
         </ul>
         <div className="b-footer">
-          <p>All rights reserved by © Camera 2021 </p>
+          <p>All rights reserved by © Cameraly 2021 </p>
         </div>
       </footer>
     </div>

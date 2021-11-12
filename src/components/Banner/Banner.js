@@ -3,7 +3,7 @@ import "./Banner.css";
 import "animate.css";
 const Banner = () => {
   return (
-    <div className="banner-container">
+    <div className="banner-container container">
       <div
         id="carouselExampleCaptions"
         className="carousel slide"

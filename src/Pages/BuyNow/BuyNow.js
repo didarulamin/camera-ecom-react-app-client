@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import "./form.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
 function CheckOutForm({ cartItems, total }) {
-  const { user, setCart } = useAuth();
+  const { user, setCart, setBuyNowCart } = useAuth();
+  const history = useHistory();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-
-  
 
   const onSubmit = (data) => {
     const orderItems = [...cartItems];
@@ -40,8 +38,10 @@ function CheckOutForm({ cartItems, total }) {
       });
 
     setCart([]);
-    localStorage.removeItem("cartItems");
+
     toast.success("Order placed successfully");
+    setBuyNowCart([]);
+    history.push("/explore/");
     reset();
   };
 
@@ -85,68 +85,13 @@ function CheckOutForm({ cartItems, total }) {
   );
 }
 
-const CheckOut = () => {
-  // const { id } = useParams();
-  const { cart } = useAuth();
-
-  // const [product, setProduct] = useState({});
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    /*  axios.get(`http://localhost:5000/api/product/${id}`).then((res) => {
-      console.log(res.data);
-      setProduct(res.data);
-    }); */
-
-    function findCartProducts(array) {
-      const count = {};
-      const result = [];
-
-      array.forEach((item) => {
-        if (count[item._id]) {
-          count[item._id] += 1;
-          return;
-        }
-        count[item._id] = 1;
-      });
-
-      for (let prop in count) {
-        if (count[prop] >= 2) {
-          result.push(prop);
-        }
-      }
-
-      const cartProducts = [];
-
-      console.log(count);
-      for (let prop in count) {
-        console.log(prop);
-
-        const uniq = array.filter(
-          (v, i, a) => a.findIndex((t) => t._id === prop) === i
-        );
-        cartProducts.push({
-          ...uniq[0],
-          quantity: count[prop],
-          total: uniq[0].price * count[prop],
-        });
-      }
-      console.log(cartProducts, "cart");
-      setCartItems(cartProducts);
-      // return result;
-    }
-
-    findCartProducts(cart);
-  }, [cart]);
-
-  console.log(cartItems, "cartItems");
-  let total = cartItems.reduce(function (acc, curr) {
-    return acc + curr.quantity * curr.price;
-  }, 0);
+const BuyNow = () => {
+  const { buyNowCart, setBuyNowCart } = useAuth();
+  const history = useHistory();
 
   const handleRemove = (id) => {
-    const newCart = cartItems.filter((item) => item._id !== id);
-    setCartItems(newCart);
+    setBuyNowCart([]);
+    history.goBack();
   };
 
   return (
@@ -167,19 +112,19 @@ const CheckOut = () => {
           </thead>
 
           <tbody>
-            {cartItems.map((item) => (
+            {buyNowCart.map((item) => (
               // {(total = item.price * item.quantity)}
 
               <tr>
                 <th scope="row">1</th>
                 <td>{item.title}</td>
                 <td>${item.price}</td>
-                <td>{item.quantity}</td>
-                <td>${item.total.toFixed(2)}</td>
+                <td>1</td>
+                <td>${item.price}</td>
 
                 <td>
                   <button
-                    onClick={() => handleRemove(item._id)}
+                    onClick={() => handleRemove()}
                     className="btn btn-info"
                   >
                     remove
@@ -192,16 +137,18 @@ const CheckOut = () => {
           </tbody>
         </table>
         <div className="my-3">
-          <span className="fs-3 border p-2">Subtotal: ${total.toFixed(2)}</span>
+          <span className="fs-3 border p-2">
+            Subtotal: ${buyNowCart[0]?.price}
+          </span>
         </div>
       </div>
 
       <div className="col-sm-4 mt-4 ">
         <h1>Shipping information</h1>
-        <CheckOutForm cartItems={cartItems} total={total} />
+        <CheckOutForm cartItems={buyNowCart} total={buyNowCart[0]?.price} />
       </div>
     </div>
   );
 };
 
-export default CheckOut;
+export default BuyNow;
