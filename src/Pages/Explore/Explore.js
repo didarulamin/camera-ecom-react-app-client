@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import "./explore.css";
 import { faCartPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet";
 const Explore = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState(true);
@@ -17,12 +18,17 @@ const Explore = () => {
       .then((res) => {
         setProducts(res.data);
 
-        setTimeout(() => setSearch(false), 500);
+        // setTimeout(() => setSearch(false), 500);
+        setSearch(false);
       });
   }, []);
 
   return !search ? (
     <div className=" container justify-content-center align-items-center my-5">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Shop</title>
+      </Helmet>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {products.map((product) => (
           <div className="col">

@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import useFirebase from "../../hooks/useFirebase";
 import { toast } from "react-toastify";
+import Helmet from "react-helmet";
 
 function Form() {
   const { registerNewUser } = useFirebase();
@@ -41,6 +42,10 @@ function Form() {
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <form onSubmit={handleSubmit(onSubmit)} className="flex-column d-flex">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Register</title>
+      </Helmet>
       <span>
         {errors.fName?.message ||
           errors.lName?.message ||
@@ -121,9 +126,8 @@ const Register = () => {
       <div className="my-4">
         <button
           onClick={handleGoogleSignIn}
-          className="btn border p-2 rounded-pill"
+          className="btn border p-2 rounded-pill btn-info"
         >
-          <img src={google} alt="" />
           <span className="m-4">Continue with Google</span>
         </button>
       </div>

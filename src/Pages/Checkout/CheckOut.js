@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import "./form.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Helmet from "react-helmet";
 
 function CheckOutForm({ cartItems, total }) {
   const { user, setCart } = useAuth();
@@ -153,6 +154,10 @@ const CheckOut = () => {
 
   return (
     <div className="row container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Checkout</title>
+      </Helmet>
       <div className="col-sm-8">
         <h1>Items</h1>
 

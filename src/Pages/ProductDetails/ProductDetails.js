@@ -2,6 +2,7 @@ import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 import Rating from "react-rating";
 import { Link, useHistory, useParams } from "react-router-dom";
 
@@ -51,6 +52,10 @@ const ProductDetails = () => {
         </div>
         <div className="col-sm-6 col-12  d-flex  flex-column">
           <div className="d-flex justify-content-between  fs-4 my-3">
+            <Helmet>
+              <meta charSet="utf-8" />
+              <title>{product.title}</title>
+            </Helmet>
             <p>{product.title}</p>
             <p>${product.price}</p>
           </div>

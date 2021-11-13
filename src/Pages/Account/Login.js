@@ -5,6 +5,7 @@ import "./form.css";
 import google from "../../assets/google.png";
 import useFirebase from "../../hooks/useFirebase";
 import { toast } from "react-toastify";
+import Helmet from "react-helmet";
 
 function LoginForm() {
   const location = useLocation();
@@ -34,6 +35,10 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex-column d-flex">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login</title>
+      </Helmet>
       <span>
         {(errors.email && <span> valid Email is required</span>) ||
           (errors.password && <span> Valid password is required</span>)}
@@ -75,22 +80,6 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     signInUsingGoogle(redirect_uri, history);
-    /*    .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-
-        history.push(redirect_uri);
-
-        // ...
-      })
-      .catch((error) => {
-        toast(error.message, { type: "error" });
-
-        // ...
-      }); */
   };
 
   return (
@@ -122,9 +111,8 @@ const Login = () => {
       <div className="my-4">
         <button
           onClick={handleGoogleSignIn}
-          className="btn border p-2 rounded-pill"
+          className="btn border p-2 rounded-pill btn-info"
         >
-          <img src={google} alt="" />
           <span className="m-4">Continue with Google</span>
         </button>
       </div>

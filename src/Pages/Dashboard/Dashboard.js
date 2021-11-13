@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Helmet from "react-helmet";
 
 import AddProduct from "../../components/AddProduct/AddProduct";
 import MakeAdmin from "../../components/MakeAdmin/MakeAdmin";
@@ -12,6 +13,10 @@ const Dashboard = () => {
   const { logOut } = useAuth();
   return (
     <div className="d-sm-flex ">
+       <Helmet>
+        <meta charSet="utf-8" />
+        <title>Dashboard</title>
+      </Helmet>
       <div className="sidebar">
         <ul>
           <li className="active btn" onClick={() => setTab("addProduct")}>

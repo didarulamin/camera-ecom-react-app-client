@@ -41,7 +41,7 @@ const Header = () => {
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/explore" className="nav-item-animation">
-              <Nav.Link>Explore</Nav.Link>
+              <Nav.Link>Shop</Nav.Link>
             </LinkContainer>
 
             <LinkContainer to="/contact" className="nav-item-animation">

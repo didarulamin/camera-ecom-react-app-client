@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import "./form.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Helmet from "react-helmet";
 
 function CheckOutForm({ cartItems, total }) {
   const { user, setCart, setBuyNowCart } = useAuth();
@@ -53,6 +54,10 @@ function CheckOutForm({ cartItems, total }) {
       onSubmit={handleSubmit(onSubmit)}
       className="flex-column d-flex border"
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Buy now</title>
+      </Helmet>
       <span></span>
       <input
         className=" p-2  m-2 no-outline input-style"

@@ -85,9 +85,8 @@ const PassReset = () => {
       <div className="my-4">
         <button
           onClick={handleGoogleSignIn}
-          className="btn border p-2 rounded-pill"
+          className="btn border p-2 rounded-pill btn-info"
         >
-          <img src={google} alt="" />
           <span className="m-4">Continue with Google</span>
         </button>
       </div>

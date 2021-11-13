@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Helmet from "react-helmet";
 import MyOrders from "../../components/MyOrders/MyOrders";
 import Payment from "../../components/Payment/Payment";
 import Reviews from "../../components/Reviews/Reviews";
@@ -11,6 +12,10 @@ const UserDashboard = () => {
   const { logOut } = useAuth();
   return (
     <div className="d-sm-flex ">
+       <Helmet>
+        <meta charSet="utf-8" />
+        <title>Dashboard</title>
+      </Helmet>
       <div className="sidebar">
         <ul>
           <li className="active btn" onClick={() => setTab("pay")}>

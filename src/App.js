@@ -24,6 +24,7 @@ import CheckOut from "./Pages/Checkout/CheckOut";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
 import UserDashboard from "./Pages/Dashboard/UserDashboard";
 import BuyNow from "./Pages/BuyNow/BuyNow";
+import "./App.css";
 
 function App() {
   /*   return (
@@ -90,7 +91,7 @@ function App() {
   }, []);
 
   return !spinner ? (
-    <div>
+    <div className="App">
       <AuthProvider>
         <BrowserRouter>
           <Header />
