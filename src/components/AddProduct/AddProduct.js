@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 
 function Form() {
   const [file, setFile] = useState(null);
@@ -52,18 +51,6 @@ function Form() {
             setFile(null);
             const newData = { ...data, img_url: downloadURL };
 
-            console.log(newData);
-
-            /*  axios
-              .post("https://murmuring-hollows-32072.herokuapp.com/api/product/add", {
-                newData,
-               
-              })
-              .then((res) => {
-                console.log(res);
-                  toast.success("Product added successfully");
-                reset();
-              }); */
             fetch(
               `https://murmuring-hollows-32072.herokuapp.com/api/product/add/`,
               {
@@ -77,26 +64,14 @@ function Form() {
             )
               .then((res) => res.json())
               .then((data) => {
-                console.log(data);
-                toast.success("Product added successfully");
                 reset();
+                toast.success("Product added successfully");
               })
               .catch((err) => {});
           });
         }
       );
     } else {
-      /*  axios
-        .post("https://murmuring-hollows-32072.herokuapp.com/api/product/add", {
-          newData: data,
-          
-        })
-        .then((res) => {
-          console.log(res);
-          //   toast.success("Product added successfully");
-          reset();
-        }); */
-
       fetch(`https://murmuring-hollows-32072.herokuapp.com/api/product/add/`, {
         method: "post",
         headers: {
@@ -107,9 +82,8 @@ function Form() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          toast.success("Product added successfully");
           reset();
+          toast.success("Product added successfully");
         })
         .catch((err) => {});
     }

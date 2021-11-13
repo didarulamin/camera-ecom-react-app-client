@@ -101,8 +101,8 @@ const Header = () => {
                         {nameInitials}
                       </span>
                     )} */}
-                    <span className=" rounded-circle bg-info p-3">
-                      {nameInitials}
+                    <span className=" rounded-circle bg-info p-3 text-white">
+                      {user.displayName.slice(0, 1)}
                     </span>
                   </div>
                 }

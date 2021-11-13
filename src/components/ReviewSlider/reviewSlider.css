@@ -1,0 +1,15 @@
+/* .slick-slide {
+  width: 300px !important;
+}
+ */
+
+/* .slick-list {
+  width: 300px !important;
+
+} */
+
+@media screen and (max-width: 480px) {
+  .slick-list {
+    width: 300px !important;
+  }
+}

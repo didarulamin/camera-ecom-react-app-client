@@ -19,7 +19,7 @@ const useData = () => {
       .get(
         `https://murmuring-hollows-32072.herokuapp.com/api/myorders/${user.uid}`
       )
-      .then((res) => setMyOrders(res.data));
+      .then((res) => setMyOrders(res.data)).catch((err) => console.log(err));
   }, [deleted]);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const useData = () => {
             } */
         console.log(data, "res orders");
         setAllOrders(data);
-      });
+      }).catch((err) => console.log(err));
   }, [deleted]);
 
   console.log(allOrders, "myorders");

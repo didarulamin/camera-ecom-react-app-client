@@ -26,15 +26,12 @@ const ProductDetails = () => {
   }, [id]);
 
   const handleAddCart = (add_product) => {
-    // setCart([add_product,...cart ]);
     let tcart = cart;
     tcart.push(add_product);
     setCart(tcart);
-    console.log(add_product, "add clicked");
-    console.log(cart, "btn clicked");
+
     console.log(cart.length);
     forceUpdate((n) => !n);
-    // find_duplicate_in_array(cart);
   };
 
   const handleBuyNow = (buy_product) => {
@@ -74,7 +71,7 @@ const ProductDetails = () => {
             {/* <p className="fs-5">{product.specification}</p> */}
           </div>
 
-          <div>
+          {/*      <div>
             <FontAwesomeIcon
               icon={faPlus}
               onClick={() => setQuantity(quantity + 1)}
@@ -84,7 +81,7 @@ const ProductDetails = () => {
               icon={faMinus}
               onClick={() => setQuantity(quantity - 1)}
             />
-          </div>
+          </div> */}
 
           <div className="my-2 mx-2">
             {/*   <Link to={`/buynow/${id}`}>

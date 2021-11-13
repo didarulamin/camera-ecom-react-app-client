@@ -1,21 +1,17 @@
 import React from "react";
-import Products from "../../components/Products/Products";
+import BannerSlider from "../../components/BannerSlider/BannerSlider";
+import NewsLetter from "../../components/NewsLetter/NewsLetter";
 // import DestinationSlider from "../../components/DestinationSlider/DestinationSlider";
-// import Banner from "../../components/Banner/Banner";
-
-// import Header from "../../components/Header/Header";
-// import NavBar from "../../components/Header/Navbar";
-// import NavBar_res from "../../components/Header/NavBar_res";
-// import Services from "../../components/Services/services";
+import Products from "../../components/Products/Products";
+import ReviewSlider from "../../components/ReviewSlider/ReviewSlider";
 
 const Home = () => {
   return (
     <div>
-      {/* <Banner /> */}
-
-      {/* <DestinationSlider /> */}
-
+      <BannerSlider />
       <Products />
+      <ReviewSlider />
+      <NewsLetter/>
     </div>
   );
 };
