@@ -4,20 +4,25 @@ import "./form.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { v4 as uuidv4 } from "uuid";
-
+import CircularProgress from "@mui/material/CircularProgress";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
 
 function Form() {
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
   // const [url, setURL] = useState("");
   const { getStorage, ref, uploadBytesResumable, getDownloadURL, token } =
     useAuth();
 
   // form validation rules
   const validationSchema = Yup.object().shape({
-    // fName: Yup.string().max(40).required("First name is required"),
-    // lName: Yup.string().max(40).required("Last name is required"),
+    title: Yup.string().max(40).required(" name is required"),
+    price: Yup.string().max(40).required("price is required"),
+    rating: Yup.string().max(40).required("rating is required"),
+    inventory: Yup.string().max(40).required("inventory is required"),
+    specification: Yup.string().required("specification is required"),
+    description: Yup.string().required("description is required"),
   });
 
   const formOptions = { resolver: yupResolver(validationSchema) };
@@ -30,7 +35,7 @@ function Form() {
   }
 
   async function onSubmit(data) {
-    console.log(data);
+    setLoading(true);
 
     if (file) {
       const storage = getStorage();
@@ -66,6 +71,7 @@ function Form() {
               .then((data) => {
                 reset();
                 toast.success("Product added successfully");
+                setLoading(false);
               })
               .catch((err) => {});
           });
@@ -84,6 +90,7 @@ function Form() {
         .then((data) => {
           reset();
           toast.success("Product added successfully");
+          setLoading(false);
         })
         .catch((err) => {});
     }
@@ -91,13 +98,14 @@ function Form() {
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)} className="flex-column d-flex">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex-column d-flex ">
       <span>
-        {errors.fName?.message ||
-          errors.lName?.message ||
-          errors.email?.message ||
-          errors.password?.message ||
-          errors.confirmPassword?.message}
+        {errors.title?.message ||
+          errors.price?.message ||
+          errors.rating?.message ||
+          errors.inventory?.message ||
+          errors.description?.message ||
+          errors.specification?.message}
       </span>
       <input
         className=" p-2  m-2 no-outline input-style "
@@ -155,7 +163,15 @@ function Form() {
         onChange={handleChange}
       />
 
-      <input className="p-3 btn btn-info my-3 " type="submit" value="submit" />
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        <input
+          className="p-3 btn btn-info my-3 "
+          type="submit"
+          value="submit"
+        />
+      )}
     </form>
   );
 }
