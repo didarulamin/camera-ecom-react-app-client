@@ -87,7 +87,7 @@ function CheckOutForm({ cartItems, total }) {
 
 const CheckOut = () => {
   // const { id } = useParams();
-  const { cart } = useAuth();
+  const { cart, setCart } = useAuth();
 
   // const [product, setProduct] = useState({});
   const [cartItems, setCartItems] = useState([]);
@@ -145,8 +145,10 @@ const CheckOut = () => {
   }, 0);
 
   const handleRemove = (id) => {
-    const newCart = cartItems.filter((item) => item._id !== id);
-    setCartItems(newCart);
+    const newCartItems = cartItems.filter((item) => item._id !== id);
+    const newCart = cart.filter((item) => item._id !== id);
+    setCartItems(newCartItems);
+    setCart(newCart);
   };
 
   return (
@@ -175,7 +177,7 @@ const CheckOut = () => {
                 <td>{item.title}</td>
                 <td>${item.price}</td>
                 <td>{item.quantity}</td>
-                <td>${item.total.toFixed(2)}</td>
+                <td>${item.total?.toFixed(2)}</td>
 
                 <td>
                   <button
