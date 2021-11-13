@@ -6,7 +6,7 @@ import Typical from "react-typical";
 import "./bannerslider.css";
 
 //banner slider component
-// carousel component
+//
 const BannerSlider = () => {
   return (
     <div className="container">
@@ -89,12 +89,12 @@ const BannerSlider = () => {
             alt=""
           />
 
-          <div className="center d-none d-sm-block ">
-            <h1 className="fs-1 text-white  ">
+          <div className=" d-none d-sm-block center ">
+            <h1 className="fs-1  ">
               Capture Your
               <br /> Beautiful moments{" "}
             </h1>
-            <h5 className="fs-1 text-white  ">
+            <h5 className="fs-1   ">
               <h1 className="fs-5">Camera Brands</h1>
               <Typical
                 steps={[
