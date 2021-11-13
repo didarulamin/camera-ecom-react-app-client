@@ -1,19 +1,15 @@
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Helmet from "react-helmet";
 import Rating from "react-rating";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 import useAuth from "../../hooks/useAuth";
-import useData from "../../hooks/useData";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const { cart, setCart, forceUpdate } = useAuth();
-  const { quantity, setQuantity } = useState(1);
   const { buyNowCart, setBuyNowCart } = useAuth();
   const history = useHistory();
 

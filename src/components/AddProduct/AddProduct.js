@@ -11,7 +11,7 @@ import useAuth from "../../hooks/useAuth";
 function Form() {
   const [file, setFile] = useState(null);
   // const [url, setURL] = useState("");
-  const { getStorage, ref, user, uploadBytesResumable, getDownloadURL, token } =
+  const { getStorage, ref, uploadBytesResumable, getDownloadURL, token } =
     useAuth();
 
   // form validation rules

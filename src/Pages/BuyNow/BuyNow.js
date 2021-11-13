@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
@@ -10,12 +9,7 @@ import Helmet from "react-helmet";
 function CheckOutForm({ cartItems, total }) {
   const { user, setCart, setBuyNowCart } = useAuth();
   const history = useHistory();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
     const orderItems = [...cartItems];

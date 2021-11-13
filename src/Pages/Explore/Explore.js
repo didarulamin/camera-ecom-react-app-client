@@ -25,6 +25,7 @@ const Explore = () => {
 
   return !search ? (
     <div className=" container justify-content-center align-items-center my-5">
+      
       <Helmet>
         <meta charSet="utf-8" />
         <title>Shop</title>

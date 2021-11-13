@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import "./form.css";
@@ -98,7 +97,7 @@ const CheckOut = () => {
       console.log(res.data);
       setProduct(res.data);
     }); */
-
+//process cart items for order 
     function findCartProducts(array) {
       const count = {};
       const result = [];
@@ -132,7 +131,7 @@ const CheckOut = () => {
           total: uniq[0].price * count[prop],
         });
       }
-      console.log(cartProducts, "cart");
+      // console.log(cartProducts, "cart");
       setCartItems(cartProducts);
       // return result;
     }
@@ -140,11 +139,12 @@ const CheckOut = () => {
     findCartProducts(cart);
   }, [cart]);
 
-  console.log(cartItems, "cartItems");
+
   let total = cartItems.reduce(function (acc, curr) {
     return acc + curr.quantity * curr.price;
   }, 0);
 
+  
   const handleRemove = (id) => {
     const newCartItems = cartItems.filter((item) => item._id !== id);
     const newCart = cart.filter((item) => item._id !== id);

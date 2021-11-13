@@ -2,11 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./form.css";
-import google from "../../assets/google.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import useFirebase from "../../hooks/useFirebase";
-import { toast } from "react-toastify";
 import Helmet from "react-helmet";
 
 function Form() {

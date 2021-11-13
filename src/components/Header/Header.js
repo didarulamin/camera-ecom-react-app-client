@@ -15,8 +15,8 @@ import "./header.css";
 
 //navbar component
 const Header = () => {
-  const { user, logOut, displayInitials, admin, cart } = useAuth();
-  const nameInitials = displayInitials();
+  const { user, logOut, admin, cart } = useAuth();
+
   let history = useHistory();
 
   console.log(cart, "header");

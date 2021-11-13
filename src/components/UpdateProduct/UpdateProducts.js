@@ -67,10 +67,11 @@ function Form({ product, forceUpdate, setforceUpdate, setUpdate }) {
               )
               .then((res) => {
                 console.log(res);
-                //   toast.success("Product added successfully");
+                   toast.success("Product added successfully");
                 //   reset();
                 setforceUpdate(!forceUpdate);
                 setUpdate(false);
+                reset();
               });
           });
         }
@@ -86,10 +87,11 @@ function Form({ product, forceUpdate, setforceUpdate, setUpdate }) {
         )
         .then((res) => {
           console.log(res);
-          //   toast.success("Product added successfully");
+            toast.success("Product added successfully");
           //   reset();
           setforceUpdate(!forceUpdate);
           setUpdate(false);
+          reset();
         });
     }
   }

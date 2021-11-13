@@ -27,62 +27,7 @@ import BuyNow from "./Pages/BuyNow/BuyNow";
 import "./App.css";
 
 function App() {
-  /*   return (
-    <div>
-      <AuthProvider>
-        <BrowserRouter>
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/profileUpdate">
-              <ProfileUpdate />
-            </Route>
-            <Route path="/PassReset">
-              <PassReset />
-            </Route>
-            <AdminRoute path="/dashboard">
-              <Dashboard />
-            </AdminRoute>
-            <Route path="/explore">
-              <Explore />
-            </Route>
-            <Route path="/addProduct">
-              <AddProduct />
-            </Route>
-            <Route path="/products/:id">
-              <ProductDetails />
-            </Route>
-            <PrivateRoute path="/buynow/">
-              <BuyNow />
-            </PrivateRoute>
-            <PrivateRoute path="/checkout/">
-              <CheckOut />
-            </PrivateRoute>
-            <PrivateRoute path="/userDashboard">
-              <UserDashboard />
-            </PrivateRoute>
-            <Route path="/*">
-              <NotFound />
-            </Route>
-          </Switch>
-          <Footer />
-          <ToastContainer />
-        </BrowserRouter>
-      </AuthProvider>
-    </div>
-  ); */
-
+//page loader
   const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
@@ -90,6 +35,7 @@ function App() {
     // setSpinner(false);
   }, []);
 
+  //conditional rendering for page loader
   return !spinner ? (
     <div className="App">
       <AuthProvider>

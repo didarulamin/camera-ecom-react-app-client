@@ -4,6 +4,9 @@ import { Carousel } from "react-responsive-carousel";
 import "animate.css";
 import Typical from "react-typical";
 import "./bannerslider.css";
+
+//banner slider component
+// carousel component
 const BannerSlider = () => {
   return (
     <div className="container">
@@ -14,7 +17,7 @@ const BannerSlider = () => {
             alt=""
           />
 
-          <div className="center ">
+          <div className="center d-none d-sm-block">
             <h1 className="fs-1 text-white  ">
               Capture Your
               <br /> Beautiful moments{" "}
@@ -50,7 +53,7 @@ const BannerSlider = () => {
             alt=""
           />
 
-          <div className="center ">
+          <div className="center d-none d-sm-block">
             <h1 className="fs-1 text-white  ">
               Capture Your
               <br /> Beautiful moments{" "}
@@ -80,13 +83,13 @@ const BannerSlider = () => {
             <button className="btn rounded-pill bg-info px-4">Buy Now</button>
           </div>
         </div>
-        <div className="slider-container">
+        <div className="slider-container ">
           <img
-            src="https://template.hasthemes.com/garcia/garcia/assets/images/slider/slider-3.jpg"
+            src="https://template.hasthemes.com/garcia/garcia/assets/images/slider/slider-1.jpg"
             alt=""
           />
 
-          <div className="center ">
+          <div className="center d-none d-sm-block ">
             <h1 className="fs-1 text-white  ">
               Capture Your
               <br /> Beautiful moments{" "}

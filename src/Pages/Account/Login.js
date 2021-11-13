@@ -2,7 +2,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./form.css";
-import google from "../../assets/google.png";
 import useFirebase from "../../hooks/useFirebase";
 import { toast } from "react-toastify";
 import Helmet from "react-helmet";
