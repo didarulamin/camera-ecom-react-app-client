@@ -7,7 +7,8 @@ const useData = () => {
   const [deleted, setDeleted] = useState(false);
   const [myOrders, setMyOrders] = useState([]);
   const [allOrders, setAllOrders] = useState([]);
-
+  const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState(true);
   const { user, token } = useAuth();
 
   useEffect(() => {
@@ -19,7 +20,8 @@ const useData = () => {
       .get(
         `https://murmuring-hollows-32072.herokuapp.com/api/myorders/${user.uid}`
       )
-      .then((res) => setMyOrders(res.data)).catch((err) => console.log(err));
+      .then((res) => setMyOrders(res.data))
+      .catch((err) => console.log(err));
   }, [deleted]);
 
   useEffect(() => {
@@ -46,10 +48,21 @@ const useData = () => {
             } */
         console.log(data, "res orders");
         setAllOrders(data);
-      }).catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
   }, [deleted]);
 
-  console.log(allOrders, "myorders");
+  useEffect(() => {
+    setSearch(true);
+    axios
+      .get("https://murmuring-hollows-32072.herokuapp.com/api/products/all")
+      .then((res) => {
+        setProducts(res.data);
+
+        // setTimeout(() => setSearch(false), 500);
+        setSearch(false);
+      });
+  }, []);
 
   return {
     deleted,
@@ -57,6 +70,9 @@ const useData = () => {
     myOrders,
     setMyOrders,
     allOrders,
+    products,
+    search,
+    setProducts,
   };
 };
 

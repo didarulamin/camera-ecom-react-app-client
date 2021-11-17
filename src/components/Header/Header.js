@@ -102,7 +102,7 @@ const Header = () => {
                       </span>
                     )} */}
                     <span className=" rounded-circle bg-info p-3 text-white">
-                      {user.displayName.slice(0, 1)}
+                      {user?.displayName?.slice(0, 1).toUpperCase()}
                     </span>
                   </div>
                 }

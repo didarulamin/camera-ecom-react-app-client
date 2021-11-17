@@ -17,7 +17,7 @@ import NotFound from "./components/NotFound/NotFound";
 import PassReset from "./Pages/Account/PassReset";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Explore from "./Pages/Explore/Explore";
-import AddProduct from "./components/AddProduct/AddProduct";
+
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import CheckOut from "./Pages/Checkout/CheckOut";
@@ -25,9 +25,10 @@ import AdminRoute from "./components/AdminRoute/AdminRoute";
 import UserDashboard from "./Pages/Dashboard/UserDashboard";
 import BuyNow from "./Pages/BuyNow/BuyNow";
 import "./App.css";
+import Pagination from "./Pages/Explore/pagination";
 
 function App() {
-//page loader
+  //page loader
   const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
@@ -66,9 +67,12 @@ function App() {
             <Route path="/explore">
               <Explore />
             </Route>
-            <Route path="/addProduct">
+            {/*   <Route path="/pagination">
+              <Pagination />
+            </Route> */}
+            {/*   <Route path="/addProduct">
               <AddProduct />
-            </Route>
+            </Route> */}
             <Route path="/products/:id">
               <ProductDetails />
             </Route>

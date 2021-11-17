@@ -33,7 +33,7 @@ const PrivateRoute = ({ children, component, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: admin.email ? "/dashboard" : "/login",
+              pathname:  "/login",
               state: { from: location },
             }}
           ></Redirect>

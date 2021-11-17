@@ -21,6 +21,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 // Create a root reference
 
@@ -29,6 +30,7 @@ initializeAuthentication();
 //use firebase hook
 const useFirebase = () => {
   const [user, setUser] = useState({});
+  const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
   const [adminLoading, setadminLoading] = useState(true);
   const [admin, setAdmin] = useState({});
@@ -70,14 +72,18 @@ const useFirebase = () => {
         // The signed-in user info.
         const user = result.user;
         saveUser(user.email, user.displayName, user.uid, "PUT");
+
         history.push(redirect_uri);
+
         // ...
       })
       .catch((error) => {
         toast(error.message, { type: "error" });
         // ...
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   // observe user state change
@@ -90,6 +96,7 @@ const useFirebase = () => {
         // const user = result.user;
         verifyEmail();
         setUserName(username);
+        history.push("/");
       })
       .catch((error) => {
         toast(error.message, { type: "error" });
@@ -128,6 +135,7 @@ const useFirebase = () => {
         if (res.data?.role === "admin") {
           setAdmin(user);
           setadminLoading(false);
+          history?.push("/dashboard");
         }
         // setAdmin(user);
       });

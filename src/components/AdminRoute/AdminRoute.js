@@ -9,7 +9,8 @@ import "./adminroute.css";
 //private route provider component
 const AdminRoute = ({ children, component, ...rest }) => {
   const { user, admin, adminLoading } = useAuth();
-  if (adminLoading) {
+  if (user.email) {
+  } else if (adminLoading) {
     return (
       <Box
         sx={{
@@ -33,7 +34,7 @@ const AdminRoute = ({ children, component, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: user.email ? "/userDashboard" : "/login",
               state: { from: location },
             }}
           ></Redirect>
