@@ -4,7 +4,7 @@ See Demo [Live site link ](https://assignment-12-42672.web.app/).
 
 ## App feature
 
-- This App developed using React JS.
+- This App developed using MERN stack.
 - React router and react fontawsome is used in this project.
 - bootstrap used as css framework.
 - user can buy camera directly after login.
